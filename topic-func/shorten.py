@@ -21,3 +21,5 @@ def shorten(text, length=25, indicator="..."):
     return text
 
 
+if __name__ == "__main__":
+    print(shorten("The quick brown fox jumps over the lazy dog", ))
