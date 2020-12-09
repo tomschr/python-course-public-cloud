@@ -1,4 +1,3 @@
-
 def countdown(n):
     """
     Countdown from the start value n to zero.

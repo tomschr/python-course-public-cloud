@@ -5,7 +5,7 @@ This decorator allows to be called alone or with optional arguments.
 @todo_opt
 def foo1():
     ...
-    
+
 @todo_opt()
 def foo2():
     ...

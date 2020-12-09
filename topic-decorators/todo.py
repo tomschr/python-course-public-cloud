@@ -15,7 +15,7 @@ def todo(func):
         funcname = func.__name__
         msg = f"TODO: Function {funcname!r} needs an implementation."
         print(msg, file=sys.stderr)
-        return func(*args, **kwargs)        
+        return func(*args, **kwargs)
 
     return wrapper
 
@@ -28,4 +28,3 @@ if __name__ == "__main__":
 
     result = foo()
     print(f"Result from foo: {result}")
-

@@ -16,7 +16,9 @@ def make_averager():
     15.0
     """
     series = []
+
     def averager(new_value):
         series.append(new_value)
         return sum(series)/len(series)
+
     return averager

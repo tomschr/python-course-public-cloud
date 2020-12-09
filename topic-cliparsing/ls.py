@@ -62,7 +62,7 @@ def parsecli(cliargs=None):
     parser.add_argument(
         "path",
         nargs='*',
-        default=[".",],
+        default=["."],
         help="Paths to investigate; if not given, '.' is used",
     )
     args = parser.parse_args(args=cliargs)
@@ -76,8 +76,8 @@ def process_lists(opts, filenames, dirnames):
         if opts.modified:
             try:
                 modified = (datetime.datetime.fromtimestamp(
-                                os.path.getmtime(name))
-                                    .isoformat(" ")[:19] + " ")
+                                os.path.getmtime(name)
+                            ).isoformat(" ")[:19] + " ")
             except EnvironmentError:
                 modified = "{0:>19} ".format("unknown")
         size = ""
@@ -163,8 +163,8 @@ def process_lists(opts, filenames, dirnames):
         if opts.modified:
             try:
                 modified = (datetime.datetime.fromtimestamp(
-                                os.path.getmtime(name))
-                                    .isoformat(" ")[:19] + " ")
+                                os.path.getmtime(name)
+                            ).isoformat(" ")[:19] + " ")
             except EnvironmentError:
                 modified = "{0:>19} ".format("unknown")
         size = ""
