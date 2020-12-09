@@ -1,7 +1,7 @@
 """
 A CLI utility to solve the quadratic equation:
 
-ax² + bx + c = 0
+ax² + bx + c = 0  with a ≠ 0
 
 where x represents an unknown.
 The numbers a, b, and c are coefficients of the equation.
@@ -43,6 +43,7 @@ def parsecli(cliargs=None):
     )
 
     args = parser.parse_args(args=cliargs)
+    # Check arguments
     if not args.a:
         parser.error("The quadratic term cannot be zero")
 
@@ -72,21 +73,21 @@ def main():
     args = parsecli()
     a, b, c = args.a, args.b, args.c
     x1, x2 = quadratic_equation(a, b, c)
-    equation = "{0}x\N{SUPERSCRIPT TWO} ".format(a)
+    equation = f"{a}x\N{SUPERSCRIPT TWO} "
     if b != 0:
         if b < 0:
-            equation += "- {0}x ".format(abs(b))
+            equation += f"- {abs(b)}x "
         else:
-            equation += "+ {0}x ".format(b)
+            equation += f"+ {b}x "
     if c != 0:
         if c < 0:
-            equation += "- {0} ".format(abs(c))
+            equation += f"- {abs(c)} "
         else:
-            equation += "+ {0} ".format(c)
-    equation += "= 0 \N{RIGHTWARDS ARROW} x = {0}".format(x1)
+            equation += f"+ {c} "
+    equation += f"= 0 \N{RIGHTWARDS ARROW} x = {x1}"
 
     if x2 is not None:
-        equation += " or x = {0}".format(x2)
+        equation += f" or x = {x2}"
     print(equation)
 
 
