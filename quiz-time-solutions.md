@@ -5,6 +5,9 @@ answers to the following questions.
 
 All answers are one-liners.
 
+Tip: If you are unsure, use `help(TYPE)` to get an
+     overview of all available methods.
+
 Have fun!
 
 
@@ -34,6 +37,12 @@ Given the list:
 
    * Solution 1: `lst[::-1]`
    * Solution 2: `list(reversed(lst))`
+
+6. How can I add an element `42` at the end of the list?
+
+   * Solution 1: `lst.append(42)`
+   * Solution 2: `lst += [42]`
+
 
 ### Questions on Dicts
 

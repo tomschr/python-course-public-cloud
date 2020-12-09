@@ -5,6 +5,9 @@ answers to the following questions.
 
 All answers are one-liners.
 
+Tip: If you are unsure, use `help(TYPE)` to get an
+     overview of all available methods.
+
 Have fun!
 
 
@@ -23,6 +26,8 @@ Given the list:
 4. How can I add an element `6` at the beginning of the list?
 
 5. How can I reverse the list?
+
+6. How can I add an element `42` at the end of the list?
 
 
 ### Questions on Dicts
