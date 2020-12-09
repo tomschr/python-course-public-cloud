@@ -27,7 +27,7 @@
      * What did you do in Python?
      * What do you want to do in Python?
      * What is your level of experience in Python?
-     * What do you expect from this course?
+     * What do you expect from this course? What would you like to learn?
 
 2. Organisational Questions
 
@@ -42,13 +42,41 @@
    * Refresher needed?
 
 
-## Refresher
+My approach:
 
-Overview: https://gitlab.com/tomschr/python-cheatsheets/uploads/b4887b8b75355ed83215732c29f2507d/python-cheatsheet.pdf
+“Always code as if the guy who ends up maintaining your code
+ will be a violent psychopath who knows where you live” ― John Woods
 
 
-### Help in Python
 
+## Python Environment
+
+Python is already installed on openSUSE. Python2 is out of maintenance
+since January 2000. Don't use it!
+
+* Editor: vim, Emacs, Kate, VSCode,
+* IDEs: Eric, IDLE, PyCharm, VSCode, Spyder, Eclipse, PyDev, Atom, ...
+* Use Python >=3.6
+
+Helpful packages:
+
+* `python3-virtualenv`, `python3-virtualenvwrapper`
+* `pyenv` for trying out different Python versions
+  (very useful for testing)
+
+Motto of our course:
+
+“Always code as if the guy who ends up maintaining your code
+ will be a violent psychopath who knows where you live.”
+                                                ― John Woods
+
+
+### Starting Python
+
+We first use an interactive Python session. Later we will switch
+to scripts.
+
+* Run `python3` or `ipython3`.
 * In an interactive Python shell with `help(obj)`
 * In IPython through `obj?`
 * On the official Python documentation https://docs.python.org
@@ -69,6 +97,15 @@ Or on the command line:
 TIP: Avoid naming your objects like keywords.
 
 
+
+
+## Refresher
+
+Overview: https://gitlab.com/tomschr/python-cheatsheets/uploads/b4887b8b75355ed83215732c29f2507d/python-cheatsheet.pdf
+
+* Indendation
+
+
 ### Numeric Datatypes
 
 https://gitlab.com/tomschr/python-cheatsheets/uploads/bd30e4e6bc97503a7bb10d65f0434bff/numeric-set-dict.pdf
@@ -85,6 +122,8 @@ https://gitlab.com/tomschr/python-cheatsheets/uploads/83d9ba6c53adcb1bfe4b6b58d6
 
 https://gitlab.com/tomschr/python-cheatsheets/uploads/41e245383fcc3ba000a611d469a62196/seq-cheatsheet.pdf
 
+Explain list, set, dict comprehensions!
+
 
 ## Quiz Time!
 
@@ -93,6 +132,11 @@ See file `quiz-time.md`.
 
 
 ## Functions
+
+### Knowlege
+
+Use `callable()` to check, if something can be called
+
 
 ### Unit 1: Knowning Built-in Functions
 
@@ -186,3 +230,33 @@ The function should detect and process the keywords `name`,
 `place`, and `age`.
 It should return a string with all the inputs combined.
 
+
+### Unit 6: Creating Generators
+
+Presentation:
+
+```python
+def mascots():
+    yield "Tux"
+    yield "Wilber"
+    yield "Geeko"
+```
+
+Task:
+Write a `countdown(n)` function starting with `n` and counting
+to zero.
+
+
+
+## Exception Handling
+
+
+## CLI Parsing
+
+
+## Python Packaging
+
+### Python Virtual Environment
+
+1. python3 -m venv .env
+2. setup.py/setup.cfg
