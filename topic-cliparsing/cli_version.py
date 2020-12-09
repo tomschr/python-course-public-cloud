@@ -6,7 +6,8 @@ __author__ = "Tom Schraitle"
 
 
 def parsecli(cliargs=None):
-    """Parse CLI arguments
+    """
+    Parse CLI arguments
 
     :param list cliargs: List of commandline arguments
         to parse or None (=use sys.argv)
