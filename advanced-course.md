@@ -23,9 +23,6 @@ The approach:
 “Always code as if the guy who ends up maintaining your code
  will be a violent psychopath who knows where you live” ― John Woods
 
-
-
-
 ## Schedule
 
 1. Introduction
@@ -51,4 +48,3 @@ The approach:
      * a **coding part** where you can have some fun with Python code
      * a voluntary **review part** where you can show our solution to the audience
    * Refresher needed?
-  

@@ -5,7 +5,7 @@ Wraps a function and register it
 from functools import wraps
 
 
-def register():
+def register_plugins():
     """
     Decorator factory
     """
@@ -28,7 +28,7 @@ def register():
 
 
 if __name__ == "__main__":
-    plugin = register()
+    plugin = register_plugins()
 
     @plugin
     def greeter(name):
