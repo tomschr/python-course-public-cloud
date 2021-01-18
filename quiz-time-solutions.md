@@ -111,7 +111,8 @@ Given the string:
 
 4. How can you substitute the substring "dog" with "bat" one time?
 
-   Solution: `s.find("dog", "bat", 1)`
+   Solution 1: `s.find("dog", "bat", 1)`
+   Solution 2: `s.replace("dog", "bat", 1)`
 
 5. How can you cut the string into a list of words?
 
