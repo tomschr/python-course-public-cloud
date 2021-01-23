@@ -7,18 +7,18 @@ def make_averager():
     """
     Create an average closure
 
-    >>> mean = make_averager()
-    >>> mean(10)
+    >>> averager = make_averager()
+    >>> averager(10)
     10.0
-    >>> mean(15)
+    >>> averager(15)
     12.5
-    >>> mean(20)
+    >>> averager(20)
     15.0
-    >>> mean.__code__.co_freevars
+    >>> averager.__code__.co_freevars
     ('length', 'total')
-    >>> mean.__closure__[0].cell_contents
+    >>> averager.__closure__[0].cell_contents
     3
-    >>> mean.__closure__[1].cell_contents
+    >>> averager.__closure__[1].cell_contents
     45
     """
     total = 0
@@ -32,6 +32,7 @@ def make_averager():
         total += number
         length += 1
         return total / length
+
     return averager
 
 
@@ -57,7 +58,9 @@ def make_averager2():
 
 
 if __name__ == "__main__":
-    mean = make_averager()
-    for item in [10, 15, 20]:
-        avg = mean(item)
-    print("Average:", avg)
+    averager = make_averager()
+    data =[10, 15, 20]
+    for item in data:
+        avg = averager(item)
+
+    print(f"Average of {data}:", avg)
