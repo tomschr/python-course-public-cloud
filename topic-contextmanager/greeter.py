@@ -1,15 +1,22 @@
-class Greeter:
-    def __init__(self, name):
-        self.name = name
+from contextlib import contextmanager
 
-    def __enter__(self):
-        print(f"Hello {self.name}")
-        return self
 
-    def __exit__(self, exc_type, exc_value, exc_tb):
-        print(f"See you later, {self.name}")
+@contextmanager
+def greeter(name):
+    """
+    Context manager that greets a person.
+
+    >>> with greeter("Tux"):
+    ...     print("Doing work")
+    Hello Tux
+    Doing work
+    Goodbye Tux! See you later.
+    """
+    print(f"Hello {name}")
+    yield
+    print(f"Goodbye {name}! See you later.")
 
 
 if __name__ == "__main__":
-    with Greeter("Tux"):
+    with greeter("Tux"):
         print("Doing stuff...")

@@ -1,13 +1,35 @@
 # Context Managers
 
-A context manager is an object that defines a runtime
-context executing within the with statement.
+> A context manager is an object that is designed to be used
+  in a `with` statement.
+
+
+## Common problems without context manager
+
+It's quite common that in your code you have something like
+this:
+
+```python
+try:
+    fh = open('data.txt')
+    # do something with the file handle fh
+
+finally:
+    # Close it:
+    fh.close()
+```
+
+Although the code works, it has some problems:
+
+* A bit hard to read
+* Error-prone, as you could forget the `fh.close`
+
 
 
 ### Use cases for context managers
 
-Context managers are usually for "resource management" which
-contains a special "context":
+The `with` statement and context managers are useful
+for common "resource management patterns":
 
 * Open and close
   Example: open a socket and close it
@@ -23,7 +45,12 @@ contains a special "context":
 
 Benefits:
 
+* Abstract the way some of the functionality like
+  dealing with aquisition and releasing resources
 * Avoids resource leaks (greater than `ulimit -n`):
+
+    $ ulimit -n
+    1024
 
     filelist = []
     for i in range(10000):
@@ -32,21 +59,21 @@ Benefits:
 
 * Makes your code easier to read
 
-Two ways to build user-definied context managers:
+There are two ways to build user-definied context managers:
 
 * class-based
-* function-based (I will present this approach)
+* generator-based (I will present this approach)
   https://docs.python.org/3/library/contextlib.html
 
 
-## Problem without context manager
+## Converting try...finally into a context manager
 
 It's quite common that in your code you have something like
 this:
 
 ```python
+fh = open('data.txt')
 try:
-    fh = open('data.txt')
     # do something with the file handle fh
 
 finally:
@@ -71,7 +98,7 @@ This is where context managers come into play.
 Typical syntax:
 
 ```python
-with context as ctx:
+with my_context_manager(...) as ctx:
     # use the ctx object
 
 # context is cleaned up
@@ -83,6 +110,23 @@ with context as ctx:
 A very simple context manager (without catching errors)
 has the following structure:
 
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def simple_ctxmgr():
+    yield 42
+```
+
+It can be used like this:
+
+```python
+>>> with simple_ctxmgr() as ctx: 
+...     print(ctx)
+42
+```
+
+But the general structure is this (without catching errors):
 
 ```python
 from contextlib import contextmanager
@@ -106,12 +150,12 @@ This is the code for a stable context manager:
 from contextlib import contextmanager
 
 @contextmanager
-def ctxmgr(*args, **kwargs):
+def ctxmgr(*args, **kwargs):  # pass any arguments you need
     # (1) <setup>
     try:
         # (2) body
-        mgr = ...
-        yield mgr  # optionally return some resource
+        context = ...
+        yield context  # optionally return some resource
     finally:
         # (3) <cleanup>
 ```
@@ -119,10 +163,71 @@ def ctxmgr(*args, **kwargs):
 You can use it like this:
 
 ```python
-with ctxmgr(*args, **kwargs) as mgr:
-    # mgr is that object that you yield from the ctx manager
+with ctxmgr(*args, **kwargs) as context:
+    # context is that object that you yield from ctxmgr()
     # <body>
 ```
 
-## Task
+## Exercise 1
 
+See `topic-contextmanager/greeter.py`
+
+Write a contextmanager `greeting` that 
+
+* says hello to the person
+* after the with-block is finished, say goodby to the person
+
+Example code that uses this contextmanager:
+
+```python
+>>> with greeter("Tux"):
+...     print("Doing work")
+Hello Tux
+Doing work
+Goodbye Tux! See you later.
+```
+
+
+## Exercise 2
+
+See `topic-contextmanager/changedir.py`
+
+Write a contextmanager `changedir` that does this:
+
+* expects a target path as argument
+* saves the current directory
+* changes to the target path
+* takes care of exceptions that might be raised inside a with-block
+* restores the current directory after the with-block
+
+Example code that uses this contextmanager:
+
+```python
+import os
+>>> pwd = os.environ["PWD"]
+>>> with changedir("/tmp/):
+...    # you are now inside the /tmp directory
+>>> # still pwd, no change
+```
+
+## Exercise 3
+
+See `topic-contextmanager/timer.py`
+
+Write a context manager `timer` that does this:
+
+* saves the current time when entering the context manager
+* gives back a dictionary with start time, end time, and
+  the difference.
+
+Example code that uses this contextmanager:
+
+```python
+>>> import time
+>>> with timer("Tux Timer") as tm:
+...     print("working")
+...     time.sleep(1.2)
+working
+>>> "{:.1f}".format(tm.get("diff", 0))
+'1.2'
+```
