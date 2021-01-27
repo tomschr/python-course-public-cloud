@@ -6,7 +6,16 @@
         "*-solutions.md",
         ".gitignore",
         "README.md",
-        "topic-*"
+        "topic-*",
+        "quiz*.md",
+        "*.ipynb",
+        ".vscode",
+        "agenda.md",
+        "agenda-day2.md",
+        "adv-course-class.md",
+        "adv-course-closures.md",
+        "adv-course-context-managers.md",
+        "adv-course-decorators.md"
     ],
     "hideFiles": [
         
