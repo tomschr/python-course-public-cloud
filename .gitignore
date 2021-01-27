@@ -264,3 +264,4 @@ fabric.properties
 *.diff
 docs/_api
 !docs/_api/semver.__about__.rst
+examples/*
