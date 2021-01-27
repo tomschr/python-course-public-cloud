@@ -3,6 +3,11 @@
 > A context manager is an object that is designed to be used
   in a `with` statement.
 
+Two ways to create context manager:
+
+* as function with a decorator
+* as a class (not shown here)
+
 
 ## Common problems without context manager
 
@@ -54,7 +59,7 @@ Benefits:
 
     filelist = []
     for i in range(10000):
-      f = open(filename, "r")
+      f = open(f"thefile{i}.txt", "r")
       filelist.append(f)
 
 * Makes your code easier to read

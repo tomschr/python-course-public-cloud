@@ -30,6 +30,8 @@ def profiled(func):
         return ncalls
 
     wrapper.ncalls = result
+    # or as a shorter alternative:
+    # wrapper.ncalls = lambda: ncalls 
     return wrapper
 
 

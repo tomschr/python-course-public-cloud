@@ -2,11 +2,11 @@
 Context Manager for timing with block
 
 >>> import time
->>> with timer("Tux Timer") as tm:
+>>> with timer() as tm:
 ...     print("working")
 ...     time.sleep(1.2)
 working
->>> "{:.1f}".format(tm.get("diff", 0))
+>>> "{:.1f}".format(tm.get("elapsed", 0))
 '1.2'
 """
 
@@ -24,16 +24,16 @@ def timer():
     finally:
         end = time.time()
         result['end'] = end
-        result['diff'] = end - start
+        result['elapsed'] = end - start
 
 
 if __name__ == "__main__":
-    with timer("Tux", ) as tm:
+    with timer() as tm:
         print("Doing some work")
         time.sleep(1.2)
     print(">>>", tm)
 
-    with timer("Wilber") as tm:
+    with timer() as tm:
         print("working")
         time.sleep(1.5)
     print(">>>", tm)
