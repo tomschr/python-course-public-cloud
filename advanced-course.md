@@ -16,35 +16,40 @@ Day 1:
 Day 2:
 
 * Classes
-* Wrap up
 
-The approach:
 
-“Always code as if the guy who ends up maintaining your code
- will be a violent psychopath who knows where you live” ― John Woods
 
 ## Schedule
 
 1. Introduction
 
    * Please switch on your web cam at least for the introduction round
-   * About me, where I am, what I do
+   * Introduction Toms: about me, where I am, what I do
    * Questions to participants:
      * What is your background?
      * What is your level of experience in Python?
      * What do you expect from this course? What would you like to learn?
 
-2. Organisational Questions
+2. Procedure
 
-   * Paste your code snippets here:
-     http://paste.opensuse.org
-   * Breaks: 
-    - after 1h, 10min break,
-    - after 6pm 1h break for dinner or breakfast.
-   * Use the Jitsi chat room to ask questions or paste your comments.
-   * Course structure
-     The high level topics are divided into:
-     * an **explanation part** where I shown and explain some code
-     * a **coding part** where you can have some fun with Python code
-     * a voluntary **review part** where you can show our solution to the audience
-   * Refresher needed?
+   The high level topics are divided into:
+   * an explanation part where Tom shows and explains some code
+   * a coding part where you can have some fun with Python code
+   * a voluntary review part where you can show your solution to the 
+     audience
+
+3. Breaks: 
+
+   * 10 minute breaks each hour
+   * 1 hour dinner/breakfast at ~18:00 CET/9:00am PST
+
+
+## Logistics:
+
+   * We'll use the following Jitsi session:
+     - http://meet.opensuse.org/Toms_Python_Class
+     - Feel free to use the chat for questions and comments
+   * The code and material will be presented in a shared VS Code session
+   * Paste your code snippets here for review:
+     https://paste.opensuse.org
+
