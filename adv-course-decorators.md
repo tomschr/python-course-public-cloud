@@ -27,15 +27,15 @@ def inc(x):
 def dec(x):
     return x - 1
 
-def operate(func, x):
+def apply(func, x):
     print(f"Calling function {func.__name__!r}")
     result = func(x)
     return result
 
->>> operate(inc, 3)
+>>> apply(inc, 3)
 Calling function 'inc'
 4
->>> operate(dec, 3)
+>>> apply(dec, 3)
 Calling function 'dec'
 2
 ```
