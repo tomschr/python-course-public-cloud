@@ -13,7 +13,7 @@ $ python3 -m doctest version_v3_*.py [-v]
 
 or
 
-$ python3 version_v3_*.py [-v]
+$ python3 version_v3_*.py -o IGNORE_EXCEPTION_DETAIL [-v]
 
 
 1. Initialization
@@ -24,11 +24,11 @@ Version(1, 2, 3)
 >>> Version(-1)
 Traceback (most recent call last):
 ...
-ValueError:
+ValueError: Version part for major cannot <0
 >>> Version(1.2)
 Traceback (most recent call last):
 ...
-TypeError:
+TypeError: Unexpected type of major. Expected int, but got <class 'float'>
 
 2. Attribute access
 >>> v1 = Version()
@@ -61,7 +61,6 @@ class Version:
             self._validate(key, value)
 
         self._version = [major, minor, patch]
-        print(">>>", self.__dict__)
 
     def _validate(self, key, value):
         self._check_type(key, value)
