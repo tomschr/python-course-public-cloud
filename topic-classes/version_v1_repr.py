@@ -5,6 +5,8 @@ An example class for version (major, minor, patch).
 This example introduces:
 
 * formats version for understanding the object (__repr__)
+* formats a version as a human readable string (__str__)
+
 
 Run this example with:
 

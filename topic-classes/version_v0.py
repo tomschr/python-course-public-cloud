@@ -5,7 +5,6 @@ An example class for version (major, minor, patch).
 This example introduces:
 
 * an initializer (__init__)
-* formats a version as a human readable string (__str__)
 
 Run this example with:
 
@@ -22,8 +21,6 @@ $ python3 version_v0.py [-v]
 >>> v2 = Version(1, 2, 3)
 >>> v2.major, v2.minor, v2.patch
 (1, 2, 3)
->>> str(v2)
-'1.2.3'
 """
 
 
@@ -41,9 +38,6 @@ class Version:
         self.major = major
         self.minor = minor
         self.patch = patch
-
-    def __str__(self) -> str:
-        return f"{self.major}.{self.minor}.{self.patch}"
 
 
 def test_doctest():
