@@ -3,7 +3,7 @@ An example class for version (major, minor, patch).
 
 This example introduces:
 
-* formats version for understanding the object (__repr__)
+* checks type and value in __init__
 
 Run this example with:
 
