@@ -12,10 +12,12 @@
         ".vscode",
         "agenda.md",
         "agenda-day2.md",
+        "examples/__pychache__/*",
         "adv-course-class.md",
         "adv-course-closures.md",
         "adv-course-context-managers.md",
-        "adv-course-decorators.md"
+        "adv-course-decorators.md",
+        "advanced-course.md"
     ],
     "hideFiles": [
         
